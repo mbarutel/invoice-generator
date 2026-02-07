@@ -180,7 +180,12 @@ func drawCompanyAndClient(pdf *gofpdf.Fpdf, invoice *models.Invoice) float64 {
 }
 
 // drawInvoiceDetails draws invoice number, date, and due date
-func drawInvoiceDetails(pdf *gofpdf.Fpdf, invoice *models.Invoice, calc models.Calculations, yPos float64) float64 {
+func drawInvoiceDetails(
+	pdf *gofpdf.Fpdf,
+	invoice *models.Invoice,
+	calc models.Calculations,
+	yPos float64,
+) float64 {
 	pdf.SetFont("Arial", "B", 10)
 
 	// Invoice Number
@@ -212,7 +217,12 @@ func drawInvoiceDetails(pdf *gofpdf.Fpdf, invoice *models.Invoice, calc models.C
 }
 
 // drawLineItemsTable draws the table of line items
-func drawLineItemsTable(pdf *gofpdf.Fpdf, invoice *models.Invoice, calc models.Calculations, yPos float64) float64 {
+func drawLineItemsTable(
+	pdf *gofpdf.Fpdf,
+	invoice *models.Invoice,
+	calc models.Calculations,
+	yPos float64,
+) float64 {
 	// Table header
 	pdf.SetFillColor(230, 230, 230)
 	pdf.SetFont("Arial", "B", 10)
@@ -259,7 +269,12 @@ func drawLineItemsTable(pdf *gofpdf.Fpdf, invoice *models.Invoice, calc models.C
 }
 
 // drawTotals draws the totals section
-func drawTotals(pdf *gofpdf.Fpdf, invoice *models.Invoice, calc models.Calculations, yPos float64) float64 {
+func drawTotals(
+	pdf *gofpdf.Fpdf,
+	invoice *models.Invoice,
+	calc models.Calculations,
+	yPos float64,
+) float64 {
 	rightColX := pageWidth - marginRight - 50
 	leftColX := rightColX - 40
 
@@ -301,7 +316,12 @@ func drawTotals(pdf *gofpdf.Fpdf, invoice *models.Invoice, calc models.Calculati
 }
 
 // drawPaymentTerms draws payment information
-func drawPaymentTerms(pdf *gofpdf.Fpdf, invoice *models.Invoice, calc models.Calculations, yPos float64) {
+func drawPaymentTerms(
+	pdf *gofpdf.Fpdf,
+	invoice *models.Invoice,
+	calc models.Calculations,
+	yPos float64,
+) {
 	pdf.SetFont("Arial", "B", 10)
 	pdf.SetXY(marginLeft, yPos)
 	pdf.Cell(40, 6, "Payment Information")
@@ -318,6 +338,12 @@ func drawPaymentTerms(pdf *gofpdf.Fpdf, invoice *models.Invoice, calc models.Cal
 	if invoice.PaymentTerms.BankName != "" {
 		pdf.SetXY(marginLeft, yPos)
 		pdf.Cell(40, 5, "Bank: "+invoice.PaymentTerms.BankName)
+		yPos += 5
+	}
+
+	if invoice.PaymentTerms.BsbNumber != "" {
+		pdf.SetXY(marginLeft, yPos)
+		pdf.Cell(40, 5, "BSB: "+invoice.PaymentTerms.BsbNumber)
 		yPos += 5
 	}
 

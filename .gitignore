@@ -15,6 +15,9 @@ invoice-generator
 # Go workspace file
 go.work
 
+# Json files
+examples/personal-sample.json
+
 # Generated PDFs (optional - uncomment if you don't want to track output PDFs)
 # output/*.pdf
 

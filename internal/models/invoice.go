@@ -56,6 +56,7 @@ type PaymentTerms struct {
 	PaymentMethods string `json:"payment_methods,omitempty"`
 	BankName       string `json:"bank_name,omitempty"`
 	AccountNumber  string `json:"account_number,omitempty"`
+	BsbNumber      string `json:"bank_state_branch,omitempty"`
 	RoutingNumber  string `json:"routing_number,omitempty"`
 	IBAN           string `json:"iban,omitempty"`
 	SWIFT          string `json:"swift,omitempty"`
