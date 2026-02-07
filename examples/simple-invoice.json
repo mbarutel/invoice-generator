@@ -1,0 +1,42 @@
+{
+  "date": "2026-02-08",
+  "currency": "USD",
+  "company": {
+    "name": "Freelance Designer Co.",
+    "address": "789 Creative Lane",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78701",
+    "email": "hello@freelancedesign.com",
+    "phone": "+1 (555) 222-3333"
+  },
+  "client": {
+    "name": "Small Business LLC",
+    "address": "321 Main Street",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78702",
+    "email": "owner@smallbiz.com"
+  },
+  "line_items": [
+    {
+      "description": "Logo Design",
+      "quantity": 1,
+      "unit_price": 800.00,
+      "discount_percent": 0
+    },
+    {
+      "description": "Business Card Design",
+      "quantity": 1,
+      "unit_price": 300.00,
+      "discount_percent": 0
+    }
+  ],
+  "tax_rate": 8.25,
+  "tax_name": "Sales Tax",
+  "payment_terms": {
+    "due_days": 15,
+    "payment_methods": "Venmo, Zelle, Check",
+    "bank_name": "Austin Credit Union"
+  }
+}

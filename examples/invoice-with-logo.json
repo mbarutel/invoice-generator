@@ -1,0 +1,52 @@
+{
+  "date": "2026-02-08",
+  "currency": "EUR",
+  "company": {
+    "name": "European Consulting GmbH",
+    "address": "Hauptstraße 100",
+    "city": "Berlin",
+    "zip_code": "10178",
+    "country": "Germany",
+    "email": "invoices@euroconsult.de",
+    "phone": "+49 30 12345678",
+    "website": "www.euroconsult.de"
+  },
+  "client": {
+    "name": "International Corp Ltd",
+    "address": "10 Downing Street",
+    "city": "London",
+    "zip_code": "SW1A 2AA",
+    "country": "United Kingdom",
+    "email": "finance@intlcorp.co.uk"
+  },
+  "line_items": [
+    {
+      "description": "Management Consulting Services",
+      "quantity": 120,
+      "unit_price": 150.00,
+      "discount_percent": 15
+    },
+    {
+      "description": "Strategy Workshop (2 days)",
+      "quantity": 2,
+      "unit_price": 2500.00,
+      "discount_percent": 0
+    },
+    {
+      "description": "Market Research Report",
+      "quantity": 1,
+      "unit_price": 3500.00,
+      "discount_percent": 10
+    }
+  ],
+  "tax_rate": 19.0,
+  "tax_name": "VAT",
+  "payment_terms": {
+    "due_days": 14,
+    "payment_methods": "Bank Transfer (SEPA)",
+    "bank_name": "Deutsche Bank",
+    "iban": "DE89 3704 0044 0532 0130 00",
+    "swift": "DEUTDEBBXXX"
+  },
+  "notes": "Vielen Dank für Ihr Vertrauen! Please reference the invoice number in your payment. Services subject to German VAT regulations."
+}

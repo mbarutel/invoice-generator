@@ -1,0 +1,63 @@
+{
+  "date": "2026-02-08",
+  "currency": "USD",
+  "company": {
+    "name": "Acme Corporation",
+    "address": "123 Business Street",
+    "city": "San Francisco",
+    "state": "CA",
+    "zip_code": "94102",
+    "country": "United States",
+    "email": "billing@acmecorp.com",
+    "phone": "+1 (555) 123-4567",
+    "website": "www.acmecorp.com"
+  },
+  "client": {
+    "name": "Tech Solutions Inc.",
+    "address": "456 Client Avenue",
+    "city": "New York",
+    "state": "NY",
+    "zip_code": "10001",
+    "country": "United States",
+    "email": "accounts@techsolutions.com",
+    "phone": "+1 (555) 987-6543"
+  },
+  "line_items": [
+    {
+      "description": "Website Development",
+      "quantity": 1,
+      "unit_price": 5000.00,
+      "discount_percent": 0
+    },
+    {
+      "description": "SEO Optimization (40 hours)",
+      "quantity": 40,
+      "unit_price": 75.00,
+      "discount_percent": 10
+    },
+    {
+      "description": "Content Management System Setup",
+      "quantity": 1,
+      "unit_price": 1500.00,
+      "discount_percent": 5
+    },
+    {
+      "description": "Monthly Maintenance (3 months)",
+      "quantity": 3,
+      "unit_price": 500.00,
+      "discount_percent": 0
+    }
+  ],
+  "tax_rate": 8.5,
+  "tax_name": "Sales Tax",
+  "payment_terms": {
+    "due_days": 30,
+    "payment_methods": "Bank Transfer, Credit Card, PayPal",
+    "bank_name": "First National Bank",
+    "account_number": "1234567890",
+    "routing_number": "021000021",
+    "iban": "US12 1234 5678 9012 3456 78",
+    "swift": "FNBAUS44"
+  },
+  "notes": "Thank you for your business! Please include the invoice number with your payment. Late payments may incur a 1.5% monthly fee."
+}
