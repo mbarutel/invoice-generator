@@ -50,6 +50,7 @@
   ],
   "tax_rate": 8.5,
   "tax_name": "Sales Tax",
+  "tax_inclusive": true,
   "payment_terms": {
     "due_days": 30,
     "payment_methods": "Bank Transfer, Credit Card, PayPal",

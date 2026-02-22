@@ -41,6 +41,7 @@
   ],
   "tax_rate": 19.0,
   "tax_name": "VAT",
+  "tax_inclusive": true,
   "payment_terms": {
     "due_days": 14,
     "payment_methods": "Bank Transfer (SEPA)",

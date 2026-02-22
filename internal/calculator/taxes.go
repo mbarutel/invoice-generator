@@ -29,7 +29,11 @@ func Calculate(invoice *models.Invoice) models.Calculations {
 	calc.TaxAmount = calc.TaxableAmount * (invoice.TaxRate / 100.0)
 
 	// Calculate total
-	calc.Total = calc.TaxableAmount + calc.TaxAmount
+	if !invoice.TaxInclusive {
+		calc.Total = calc.TaxableAmount + calc.TaxAmount
+	} else {
+		calc.Total = calc.TaxableAmount
+	}
 
 	// Calculate due date
 	invoiceDate := parseDate(invoice.Date)

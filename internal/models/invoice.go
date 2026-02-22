@@ -12,6 +12,7 @@ type Invoice struct {
 	LineItems     []LineItem   `json:"line_items"`
 	TaxRate       float64      `json:"tax_rate"`
 	TaxName       string       `json:"tax_name"`
+	TaxInclusive  bool         `json:"tax_inclusive"`
 	PaymentTerms  PaymentTerms `json:"payment_terms"`
 	Notes         string       `json:"notes,omitempty"`
 }
