@@ -5,6 +5,7 @@ import (
 	"invoice-generator/internal/calculator"
 	"invoice-generator/internal/models"
 	"os"
+	"strings"
 
 	"github.com/google/uuid"
 	"github.com/jung-kurt/gofpdf"
@@ -57,10 +58,10 @@ func GeneratePDF(invoice *models.Invoice, outputPath string) error {
 	return pdf.OutputFileAndClose(outputPath)
 }
 
-// generateInvoiceNumber creates a UUID-based invoice number
+// generateInvoiceNumber creates a short invoice number
 func generateInvoiceNumber() string {
 	id := uuid.New()
-	return id.String()
+	return fmt.Sprintf("INV-%s", strings.ToUpper(strings.ReplaceAll(id.String(), "-", "")[:8]))
 }
 
 // drawHeader draws the invoice title and logo
@@ -132,6 +133,12 @@ func drawCompanyAndClient(pdf *gofpdf.Fpdf, invoice *models.Invoice) float64 {
 		pdf.Cell(80, 5, invoice.Company.Phone)
 	}
 
+	if invoice.Company.ABN != "" {
+		yPos += 5
+		pdf.SetXY(marginLeft, yPos)
+		pdf.Cell(80, 5, "ABN: "+invoice.Company.ABN)
+	}
+
 	// Client details (right side)
 	yPosClient := marginTop + 35.0
 	pdf.SetFont("Arial", "B", 10)
@@ -170,6 +177,12 @@ func drawCompanyAndClient(pdf *gofpdf.Fpdf, invoice *models.Invoice) float64 {
 		yPosClient += 5
 		pdf.SetXY(pageWidth-marginRight-80, yPosClient)
 		pdf.Cell(80, 5, invoice.Client.Email)
+	}
+
+	if invoice.Client.ABN != "" {
+		yPosClient += 5
+		pdf.SetXY(pageWidth-marginRight-80, yPosClient)
+		pdf.Cell(80, 5, "ABN: "+invoice.Client.ABN)
 	}
 
 	// Return the max Y position
@@ -223,12 +236,28 @@ func drawLineItemsTable(
 	calc models.Calculations,
 	yPos float64,
 ) float64 {
+	// Check if any line item has a discount
+	hasDiscount := false
+	for _, item := range invoice.LineItems {
+		if item.DiscountPercent > 0 {
+			hasDiscount = true
+			break
+		}
+	}
+
 	// Table header
 	pdf.SetFillColor(230, 230, 230)
 	pdf.SetFont("Arial", "B", 10)
 
-	colWidths := []float64{70, 20, 25, 25, 30}
-	headers := []string{"Description", "Qty", "Unit Price", "Discount", "Amount"}
+	var colWidths []float64
+	var headers []string
+	if hasDiscount {
+		colWidths = []float64{70, 20, 25, 25, 30}
+		headers = []string{"Description", "Qty", "Unit Price", "Discount", "Amount"}
+	} else {
+		colWidths = []float64{85, 20, 30, 35}
+		headers = []string{"Description", "Qty", "Unit Price", "Amount"}
+	}
 
 	pdf.SetXY(marginLeft, yPos)
 	for i, header := range headers {
@@ -253,14 +282,17 @@ func drawLineItemsTable(
 		priceStr := fmt.Sprintf("%.2f", item.UnitPrice)
 		pdf.CellFormat(colWidths[2], 7, priceStr, "1", 0, "R", false, 0, "")
 
-		// Discount
-		discountStr := fmt.Sprintf("%.1f%%", item.DiscountPercent)
-		pdf.CellFormat(colWidths[3], 7, discountStr, "1", 0, "R", false, 0, "")
+		// Discount (only if any item has a discount)
+		if hasDiscount {
+			discountStr := fmt.Sprintf("%.1f%%", item.DiscountPercent)
+			pdf.CellFormat(colWidths[3], 7, discountStr, "1", 0, "R", false, 0, "")
+		}
 
 		// Amount (after discount)
 		amount := item.Quantity * item.UnitPrice * (1 - item.DiscountPercent/100.0)
 		amountStr := fmt.Sprintf("%.2f", amount)
-		pdf.CellFormat(colWidths[4], 7, amountStr, "1", 0, "R", false, 0, "")
+		lastCol := len(colWidths) - 1
+		pdf.CellFormat(colWidths[lastCol], 7, amountStr, "1", 0, "R", false, 0, "")
 
 		yPos += 7
 	}

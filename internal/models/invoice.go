@@ -29,6 +29,7 @@ type Company struct {
 	Email    string `json:"email"`
 	Phone    string `json:"phone,omitempty"`
 	Website  string `json:"website,omitempty"`
+	ABN      string `json:"abn,omitempty"`
 }
 
 // Client represents the customer/buyer details
@@ -41,6 +42,7 @@ type Client struct {
 	Country string `json:"country,omitempty"`
 	Email   string `json:"email,omitempty"`
 	Phone   string `json:"phone,omitempty"`
+	ABN     string `json:"abn,omitempty"`
 }
 
 // LineItem represents a single item/service on the invoice

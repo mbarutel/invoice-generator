@@ -1,0 +1,46 @@
+{
+  "date": "2026-03-29",
+  "currency": "AUD",
+  "company": {
+    "name": "Michel Philippe Edubas",
+    "abn": "90 971 479 356",
+    "address": "1 Bowden Court",
+    "city": "Nerang",
+    "state": "QLD",
+    "zip_code": "4211",
+    "country": "Australia",
+    "email": "michelbarutel.work@hotmail.com",
+    "phone": "0402 704 033"
+  },
+  "client": {
+    "name": "Ageing with Grace",
+    "address": "470 St Kilda Rd",
+    "city": "Melbourne",
+    "state": "VIC",
+    "zip_code": "3004",
+    "country": "Australia",
+    "email": "esist@ageingwithgrace.org.au",
+    "phone": "0491 272 417",
+    "abn": "43 661 502 227"
+  },
+  "line_items": [
+    {
+      "description": "Digital Poster Development (hours)",
+      "quantity": 2,
+      "unit_price": 60,
+      "discount_percent": 0
+    }
+  ],
+  "tax_rate": 10,
+  "tax_name": "GST",
+  "tax_inclusive": true,
+  "payment_terms": {
+    "due_days": 14,
+    "payment_methods": "Bank Transfer",
+    "bank_name": "Commonwealth Bank",
+    "account_number": "8284-1160",
+    "bank_state_branch": "062-692",
+    "swift": "CTBAAU2S"
+  },
+  "notes": "Thank you for your business! :)"
+}

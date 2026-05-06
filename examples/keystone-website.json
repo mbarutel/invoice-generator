@@ -1,0 +1,51 @@
+{
+  "date": "2026-05-07",
+  "currency": "AUD",
+  "company": {
+    "name": "Michel Philippe Edubas",
+    "abn": "90 971 479 356",
+    "address": "1 Bowden Court",
+    "city": "Nerang",
+    "state": "QLD",
+    "zip_code": "4211",
+    "country": "Australia",
+    "email": "michelbarutel.work@hotmail.com",
+    "phone": "0402 704 033"
+  },
+  "client": {
+    "name": "Keystone Services PTY LTD ",
+    "address": "17 Janessa Dr",
+    "city": "Clyde North",
+    "state": "VIC",
+    "zip_code": "3978",
+    "country": "Australia",
+    "email": "info@keystone-services.com.au",
+    "abn": "40 684 512 785"
+  },
+  "line_items": [
+    {
+      "description": "Website Development",
+      "quantity": 1,
+      "unit_price": 500,
+      "discount_percent": 0
+    },
+    {
+      "description": "Website Hosting & Maintenance (one year)",
+      "quantity": 1,
+      "unit_price": 120,
+      "discount_percent": 0
+    }
+  ],
+  "tax_rate": 10,
+  "tax_name": "GST",
+  "tax_inclusive": true,
+  "payment_terms": {
+    "due_days": 14,
+    "payment_methods": "Bank Transfer",
+    "bank_name": "Commonwealth Bank",
+    "account_number": "8284-1160",
+    "bank_state_branch": "062-692",
+    "swift": "CTBAAU2S"
+  },
+  "notes": "Thank you for your business! :)"
+}

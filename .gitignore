@@ -11,6 +11,7 @@ invoice-generator
 
 # Output coverage
 *.out
+*.pdf
 
 # Go workspace file
 go.work
